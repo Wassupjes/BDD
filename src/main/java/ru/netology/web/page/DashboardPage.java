@@ -25,10 +25,19 @@ public class DashboardPage {
         return extractBalance(text);
     }
 
+    public int getCardBalance(int index) {
+        var text = cards.get(index).getText();
+        return extractBalance(text);
+    }
+    public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) {
+        cards.findBy(Condition.attribute("data-test-id", cardInfo.getTestId())).$("button").click();
+        return new TransferPage();
+    }
+
     private int extractBalance(String text) {
-        val start = text.indexOf(balanceStart);
-        val finish = text.indexOf(balanceFinish);
-        val value = text.substring(start + balanceStart.length(),balanceFinish);
+        var start = text.indexOf(balanceStart);
+        var finish = text.indexOf(balanceFinish);
+        var value = text.substring(start + balanceStart.length(), finish);
         return Integer.parseInt(value);
     }
 }
