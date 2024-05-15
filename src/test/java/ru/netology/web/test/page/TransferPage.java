@@ -1,8 +1,8 @@
-package ru.netology.web.page;
+package ru.netology.web.test.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import ru.netology.web.data.DataHelper;
+import ru.netology.web.test.data.DataHelper;
 
 import java.time.Duration;
 
@@ -21,9 +21,9 @@ public class TransferPage {
         transferHead.shouldBe(visible);
     }
 
-    public DashboardPage makeValidTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo) {
+    public ru.netology.web.test.page.DashboardPage makeValidTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo) {
         makeTransfer(amountToTransfer, cardInfo);
-        return new DashboardPage();
+        return new ru.netology.web.test.page.DashboardPage();
     }
 
     public void makeTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo) {

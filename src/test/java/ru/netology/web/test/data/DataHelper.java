@@ -1,4 +1,4 @@
-package ru.netology.web.data;
+package ru.netology.web.test.data;
 
 import lombok.Value;
 import java.util.Random;
@@ -32,7 +32,7 @@ public class DataHelper {
         String code;
     }
 
-    public static VerificationCode getVerificationCodeFor(AuthInfo authInfo) {
+    public static VerificationCode getVerificationCode(AuthInfo authInfo) {
         return new VerificationCode("12345");
     }
 

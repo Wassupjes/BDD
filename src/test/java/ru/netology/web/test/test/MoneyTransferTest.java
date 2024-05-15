@@ -1,13 +1,14 @@
-package ru.netology.web.test;
+package ru.netology.web.test.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.netology.web.page.DashboardPage;
-import ru.netology.web.page.LoginPage;
+import ru.netology.web.test.data.DataHelper;
+import ru.netology.web.test.page.DashboardPage;
+import ru.netology.web.test.page.LoginPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.netology.web.data.DataHelper.*;
+import static ru.netology.web.test.data.DataHelper.*;
 
 public class MoneyTransferTest {
     DashboardPage dashboardPage;
@@ -21,7 +22,7 @@ public class MoneyTransferTest {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
-        var verificationCode = getVerificationCode();
+        var verificationCode = DataHelper.getVerificationCode(authInfo);
         dashboardPage = verificationPage.validVerify(verificationCode);
         firstCardInfo = getFirstCardInfo();
         secondCardInfo = getSecondCardInfo();

@@ -1,10 +1,9 @@
-package ru.netology.web.page;
+package ru.netology.web.test.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import lombok.val;
-import ru.netology.web.data.DataHelper;
+import ru.netology.web.test.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -31,7 +30,7 @@ public class DashboardPage {
     }
     public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) {
         cards.findBy(Condition.attribute("data-test-id", cardInfo.getTestId())).$("button").click();
-        return new TransferPage();
+        return new ru.netology.web.test.page.TransferPage();
     }
 
     private int extractBalance(String text) {
